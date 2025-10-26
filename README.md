@@ -142,9 +142,6 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Authors
-
-- **Your Name** - *Initial work* - [@yourusername](https://github.com/yourusername)
 
 ## 🙏 Acknowledgments
 
