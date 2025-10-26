@@ -97,3 +97,77 @@ The application will open at `http://localhost:3000`
 - **Testing**: Jest & React Testing Library
 
 ## 📊 Project Structure
+src/
+├── components/
+│   └── FirewallSimulator.jsx    # Main simulator component
+├── utils/
+│   ├── ipMatcher.js              # IP matching logic
+│   └── ruleEvaluator.js          # Rule evaluation engine
+├── App.js                        # Root component
+├── index.js                      # Entry point
+└── index.css                     # Global styles
+## 🧪 Testing
+```bash
+# Run all tests
+npm test
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run tests in watch mode
+npm test -- --watch
+```
+
+## 🏗️ Building for Production
+```bash
+# Create optimized production build
+npm run build
+
+# The build folder is ready to be deployed
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Authors
+
+- **Your Name** - *Initial work* - [@yourusername](https://github.com/yourusername)
+
+## 🙏 Acknowledgments
+
+- Inspired by real-world firewall implementations (iptables, pfSense, etc.)
+- Built for educational purposes
+- Thanks to all contributors
+
+
+
+## 🗺️ Roadmap
+
+- [ ] Advanced protocol support (GRE, ESP, AH)
+- [ ] Stateful inspection simulation
+- [ ] Rule conflict detection
+- [ ] Performance metrics
+- [ ] Network topology visualization
+- [ ] Multi-firewall scenarios
+- [ ] API for programmatic rule management
+
+## ⚠️ Disclaimer
+
+This is an educational tool. For production environments, always use enterprise-grade firewall solutions.
+
+---
+
+Made with ❤️ for network security education
