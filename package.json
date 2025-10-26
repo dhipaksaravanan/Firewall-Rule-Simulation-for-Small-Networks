@@ -1,47 +1,58 @@
 {
-  "name": "firewall-rule-simulation",
+  "name": "firewall-rule-simulator",
   "version": "1.0.0",
-  "description": "Interactive firewall rule simulator for small networks",
+  "description": "Interactive firewall rule simulator for small networks - Educational tool",
   "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.{js,jsx}",
+    "format": "prettier --write src/**/*.{js,jsx,css,md}"
+  },
   "keywords": [
     "firewall",
-    "network-security",
-    "packet-filtering",
+    "network",
+    "security",
     "simulator",
-    "educational",
-    "cybersecurity"
+    "education",
+    "networking",
+    "cybersecurity",
+    "packet-filtering",
+    "cidr",
+    "iptables"
   ],
   "author": "Your Name <your.email@example.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/firewall-rule-simulation.git"
+    "url": "https://github.com/yourusername/firewall-rule-simulator.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/firewall-rule-simulation/issues"
+    "url": "https://github.com/yourusername/firewall-rule-simulator/issues"
   },
-  "homepage": "https://github.com/yourusername/firewall-rule-simulation#readme",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+  "homepage": "https://github.com/yourusername/firewall-rule-simulator#readme",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "lucide-react": "^0.263.1"
   },
   "devDependencies": {
-    "react-scripts": "^5.0.1",
-    "tailwindcss": "^3.3.0",
+    "react-scripts": "5.0.1",
     "@testing-library/react": "^13.4.0",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/user-event": "^13.5.0"
+    "@testing-library/user-event": "^14.4.3",
+    "jest": "^27.5.1",
+    "eslint": "^8.45.0",
+    "prettier": "^2.8.8"
   },
   "eslintConfig": {
     "extends": [
-      "react-app"
+      "react-app",
+      "react-app/jest"
     ]
   },
   "browserslist": {
