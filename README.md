@@ -1,47 +1,46 @@
-# 🛡️ Firewall Rule Simulation for Small Networks
+# Firewall Rule Simulator for Small Networks
 
-A web-based interactive firewall rule simulator that helps network administrators and students understand how firewall packet filtering works in small networks.
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yourusername/firewall-rule-simulator)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![React](https://img.shields.io/badge/React-18.2.0-61dafb.svg)](https://reactjs.org/)
 
-![Firewall Simulator](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![React](https://img.shields.io/badge/react-18.0+-61dafb.svg)
+A web-based interactive firewall rule simulator designed for educational purposes. Perfect for network administrators, students, and anyone learning about network security and firewall configurations.
 
-## 🌟 Features
+![Firewall Simulator Demo](https://via.placeholder.com/800x400?text=Firewall+Simulator+Screenshot)
 
-- **Interactive Rule Management**: Add, edit, and delete firewall rules dynamically
-- **Packet Simulation**: Test how packets traverse your firewall rules
-- **Priority-based Evaluation**: Rules are processed based on priority order
-- **CIDR Support**: Full support for CIDR notation (e.g., 192.168.1.0/24)
-- **Protocol Support**: TCP, UDP, ICMP, and ANY protocols
-- **Visual Feedback**: Clear visual indicators for ALLOW/DENY decisions
-- **Educational Tool**: Perfect for learning network security concepts
+## ✨ Features
+
+- 🛡️ **Interactive Rule Management** - Add, edit, and delete firewall rules in real-time
+- 🎯 **Packet Simulation** - Test network packets against your firewall rules
+- 📊 **Priority-based Evaluation** - Rules are evaluated based on priority order
+- 🌐 **CIDR Support** - Full support for CIDR notation (e.g., 192.168.1.0/24)
+- 💾 **Import/Export** - Save and load firewall configurations as JSON
+- ✅ **Visual Feedback** - Clear indication of allowed/denied packets
+- 📱 **Responsive Design** - Works seamlessly on desktop and mobile devices
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
+- Node.js 14.x or higher
 - npm or yarn
 
 ### Installation
-
-1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/firewall-rule-simulation.git
-cd firewall-rule-simulation
-```
+# Clone the repository
+git clone https://github.com/yourusername/firewall-rule-simulator.git
 
-2. Install dependencies:
-```bash
+# Navigate to project directory
+cd firewall-rule-simulator
+
+# Install dependencies
 npm install
-```
 
-3. Start the development server:
-```bash
+# Start development server
 npm start
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+The application will open at `http://localhost:3000`
 
 ## 📖 Usage
 
@@ -49,94 +48,52 @@ npm start
 
 1. Click the **"Add Rule"** button
 2. Configure the rule parameters:
-   - **Priority**: Lower numbers are evaluated first
+   - **Priority**: Lower numbers = higher priority (evaluated first)
    - **Action**: ALLOW or DENY
    - **Protocol**: TCP, UDP, ICMP, or ANY
-   - **Source IP**: Use CIDR notation (e.g., 192.168.1.0/24) or 0.0.0.0/0 for any
-   - **Destination IP**: Target IP address or range
-   - **Port**: Specific port number or 0 for any port
+   - **Source IP**: IP address or CIDR range
+   - **Destination IP**: IP address or CIDR range
+   - **Port**: Destination port (0 = any port)
 
 ### Testing Packets
 
-1. Fill in the **Test Packet** form:
-   - Protocol
-   - Source IP
-   - Destination IP
-   - Destination Port
+1. Enter packet details in the **"Test Packet"** section
 2. Click **"Simulate Packet"**
-3. View the result showing whether the packet is allowed or denied
+3. View the result showing whether the packet was allowed or denied
 
-## 🎯 Example Scenarios
+### Exporting/Importing Rules
 
-### Web Server Configuration
-Priority 1: ALLOW TCP 0.0.0.0/0 → 10.0.0.5:80    (HTTP)
-Priority 2: ALLOW TCP 0.0.0.0/0 → 10.0.0.5:443   (HTTPS)
-Priority 3: ALLOW TCP 192.168.1.0/24 → 10.0.0.5:22 (SSH from internal)
-Priority 4: DENY TCP 0.0.0.0/0 → 10.0.0.5:22     (Block external SSH)
+- **Export**: Click "Export" to download rules as JSON
+- **Import**: Click "Import" and select a JSON file
 
-### DNS Server Protection
-Priority 1: ALLOW UDP 192.168.1.0/24 → 10.0.0.53:53 (Internal DNS)
-Priority 2: DENY UDP 0.0.0.0/0 → 10.0.0.53:53      (Block external DNS)
+## 📚 Documentation
 
-### DMZ Setup
-Priority 1: ALLOW TCP 0.0.0.0/0 → 172.16.0.0/24:80  (Public web access)
-Priority 2: ALLOW TCP 192.168.1.0/24 → 172.16.0.0/24:0 (Internal full access)
-Priority 3: DENY TCP 172.16.0.0/24 → 192.168.1.0/24:0 (DMZ cannot access internal)
+- [Firewall Basics](docs/FIREWALL_BASICS.md) - Learn fundamental firewall concepts
+- [Configuration Examples](docs/EXAMPLES.md) - Real-world firewall configurations
+- [Contributing Guide](CONTRIBUTING.md) - How to contribute to this project
 
-## 🔧 Technical Details
+## 🎓 Educational Use Cases
 
-### Rule Evaluation Algorithm
+### For Students
+- Learn how firewall rules work
+- Understand packet filtering
+- Practice network security concepts
 
-1. Rules are sorted by priority (ascending order)
-2. Each rule is evaluated sequentially
-3. Packet fields are matched against rule conditions:
-   - Protocol matching (exact or ANY)
-   - Source IP matching (with CIDR support)
-   - Destination IP matching (with CIDR support)
-   - Port matching (exact or wildcard 0)
-4. First matching rule determines the action
-5. If no rules match, default DENY policy applies
+### For Educators
+- Interactive classroom demonstrations
+- Hands-on lab exercises
+- Visual learning tool
 
-### CIDR Notation Support
+### For Network Administrators
+- Test rule configurations before deployment
+- Troubleshoot firewall issues
+- Document network security policies
 
-The simulator supports standard CIDR notation:
-- `/24` = 255.255.255.0 (Class C network)
-- `/16` = 255.255.0.0 (Class B network)
-- `/8` = 255.0.0.0 (Class A network)
-- `/32` = Single host
+## 🔧 Technology Stack
 
-## 🎓 Educational Value
+- **Frontend**: React 18.2.0
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Testing**: Jest & React Testing Library
 
-This simulator is perfect for:
-- **Network Security Students**: Understanding firewall concepts
-- **System Administrators**: Testing firewall configurations
-- **DevOps Engineers**: Planning security policies
-- **Cybersecurity Training**: Hands-on practice with packet filtering
-
-## 🛠️ Built With
-
-- **React** - UI framework
-- **Tailwind CSS** - Styling
-- **Lucide React** - Icons
-- **JavaScript** - Core logic
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-## 🙏 Acknowledgments
-
-- Inspired by real-world firewall systems (iptables, pf, Windows Firewall)
-- Educational resources from network security courses
-- Community feedback and contributions
+## 📊 Project Structure
